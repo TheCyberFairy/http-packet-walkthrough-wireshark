@@ -1,6 +1,6 @@
 # Wireshark Lab: How Websites Work (HTTP GET)
 
-In this lab, I used Wireshark to trace a full HTTP GET request and response between my virtual machine and the website `neverssl.com`. The goal was to understand how web traffic works—from the DNS query and TCP handshake to the HTML payload being sent back by the server. To avoid browser redirects to the HTTPS version of the site, I had to use PowerShell as a “backdoor” method for sending a plain HTTP request that Wireshark could capture.
+In this lab, I used Wireshark to trace a full HTTP GET request and response between my virtual machine and the website `neverssl.com`. The goal was to understand how web traffic works, from the DNS query and TCP handshake to the HTML payload being sent back by the server. To avoid browser redirects to the HTTPS version of the site, I had to use PowerShell as a “backdoor” method for sending a plain HTTP request that Wireshark could capture.
 
 ---
 
@@ -13,20 +13,37 @@ In this lab, I used Wireshark to trace a full HTTP GET request and response betw
 5. Located the **HTTP GET request** in Wireshark.
 6. Examined the **HTTP 200 OK response** from the server.
 7. Reassembled and viewed the **payload** containing the HTML source.
-8. Analyzed the full **HTML page** using Wireshark’s "Follow TCP Stream" view.
+8. Analyzed the full **HTML page** using Wireshark’s "Follow TCP Stream" view
 
 ---
+   
+### 📸 Screenshots
 
-## 🖼️ Screenshots (Click to View Full Size)
+You can click on any image below to view it in full size.
 
-1. ![Start Wireshark](./screenshots/1-start-wireshark-capture.png)
-2. ![PowerShell HTTP Request](./screenshots/2-powershell-http-request.png)
-3. ![DNS Query Neverssl](./screenshots/3-dns-query-neverssl.png)
-4. ![TCP Handshake](./screenshots/4-tcp-handshake-neverssl.png)
-5. ![HTTP GET Request](./screenshots/5-http-get-request.png)
-6. ![HTTP Response](./screenshots/6-http-response.png)
-7. ![HTTP Response Payload](./screenshots/7_http_response_payload.png)
-8. ![HTML Response in TCP Stream](./screenshots/8-html-response-neverssl.png)
+1. **Start Wireshark Capture**  
+   ![Start Wireshark Capture](1-start-wireshark-capture.png)
+
+2. **PowerShell HTTP Request**  
+   ![PowerShell HTTP Request](2-powershell-http-request.png)
+
+3. **DNS Query for NeverSSL**  
+   ![DNS Query for NeverSSL](3-dns-query-neverssl.png)
+
+4. **TCP Handshake to NeverSSL**  
+   ![TCP Handshake to NeverSSL](4-tcp-handshake-neverssl.png)
+
+5. **HTTP GET Request**  
+   ![HTTP GET Request](5-http-get-request.png)
+
+6. **HTTP Response (Headers)**  
+   ![HTTP Response (Headers)](6-http-response.png)
+
+7. **HTTP Response Payload (Raw View)**  
+   ![HTTP Response Payload (Raw View)](7_http_response_payload.png)
+
+8. **HTML Response in TCP Stream View**  
+   ![HTML Response in TCP Stream View](8-html-response-neverssl.png)
 
 ---
 
