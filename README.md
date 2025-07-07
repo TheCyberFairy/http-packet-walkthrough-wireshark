@@ -30,6 +30,39 @@ In this lab, I used Wireshark to trace a full HTTP GET request and response betw
 
 ---
 
+### 🧪 Scripts and Wireshark Filters Used
+
+```powershell
+# PowerShell Command to Perform HTTP GET Request (Unencrypted)
+Invoke-WebRequest -Uri http://neverssl.com
+```
+
+```wireshark
+# Wireshark Display Filter to Isolate DNS Query to neverssl.com
+dns.qry.name == "neverssl.com"
+```
+
+```wireshark
+# Wireshark Display Filter to Show TCP Handshake with Destination IP
+ip.addr == 34.223.124.45 and tcp
+```
+
+```wireshark
+# Wireshark Display Filter to Show HTTP Requests Only
+http.request
+```
+
+```wireshark
+# Wireshark Display Filter to Show HTTP Responses Only
+http.response
+```
+
+```wireshark
+# Wireshark Display Filter to Follow TCP Stream
+tcp.stream eq 30
+```
+---
+
 ## 🧠 Why This Matters
 
 This lab mirrors the kind of analysis I would do in a phishing investigation. For example, when a phishing email contains a shady URL, I can use this same technique to trace where the URL leads, what server it connects to, and what kind of response or payload it delivers—just like I did here. The PowerShell method helped me avoid browser security features that automatically redirect to HTTPS, letting me capture a raw, unencrypted HTTP transaction.
